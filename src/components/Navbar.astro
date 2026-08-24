@@ -7,11 +7,10 @@ export interface Props {
 const {
   logo = "brief.tr",
   navItems = [
+    { title: "Hakkımızda", href: "#about" },
     { title: "Projeler", href: "#projects" },
-    { title: "Deneyim", href: "#experience" },
-    { title: "Yetenekler", href: "#skills" },
-    { title: "Blog", href: "/blog" },
     { title: "İletişim", href: "/iletisim" },
+    { title: "Blog", href: "/blog" },
   ],
 } = Astro.props;
 ---
