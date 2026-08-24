@@ -1,6 +1,6 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
+import BlogNavbar from '../../components/BlogNavbar.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
@@ -12,99 +12,49 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
+	<body class="min-h-screen bg-background">
+		<BlogNavbar />
+		<main class="container mx-auto px-4 py-16 md:py-24">
+			<div class="max-w-5xl mx-auto">
+				<!-- Header -->
+				<div class="text-center mb-16">
+					<h1 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
+						<span class="font-serif italic">Blog</span>
+					</h1>
+					<p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+						Yapay zeka ve dijital dönüşüm hakkındaki en son yazılarımız
+					</p>
+				</div>
+
+				<!-- Posts Grid -->
+				<div class="grid md:grid-cols-2 gap-8">
 					{
 						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
+							<a href={`/blog/${post.id}/`} class="group block rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg transition-shadow duration-300">
+								{post.data.heroImage && (
+									<img
+										src={post.data.heroImage}
+										alt={post.data.title}
+										class="w-full h-48 object-cover"
+									/>
+								)}
+								<div class="p-6">
+									<h2 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+										{post.data.title}
+									</h2>
+									<p class="text-sm text-muted-foreground">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
-								</a>
-							</li>
+								</div>
+							</a>
 						))
 					}
-				</ul>
-			</section>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>

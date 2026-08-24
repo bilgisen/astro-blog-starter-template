@@ -1,0 +1,213 @@
+---
+export interface Props {
+  logo?: string;
+}
+
+const {
+  logo = "brief.tr",
+} = Astro.props;
+
+const navItems = [
+  { title: "Ana Sayfa", href: "/" },
+  { title: "Hakkımızda", href: "/#about" },
+  { title: "Projeler", href: "/#projects" },
+  { title: "İletişim", href: "/iletisim" },
+];
+---
+
+<header class="inset-x-0 z-50 px-4 flex items-center justify-center sticky top-0 h-20">
+  <nav
+    id="navbar"
+    class="w-full max-w-6xl flex items-center h-fit justify-between gap-3.5 lg:gap-6 transition-all duration-500 bg-transparent border-transparent"
+  >
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-lg font-semibold text-foreground">
+      <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="8" class="fill-foreground"/>
+        <path d="M8 16L16 8L24 16L16 24L8 16Z" class="fill-background"/>
+      </svg>
+      <span>{logo}</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="max-lg:hidden bg-muted p-0.5 rounded-full">
+      <ul class="flex gap-0 list-none m-0 p-0">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="px-4 py-2 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground hover:bg-background outline outline-transparent hover:outline-border hover:shadow-xs transition-all duration-200 tracking-normal block"
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button
+      id="theme-toggle"
+      class="p-2.5 rounded-full border border-border hover:bg-muted transition-colors duration-200"
+      aria-label="Toggle theme"
+    >
+      <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+      </svg>
+      <svg id="theme-icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+      </svg>
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden rounded-full border border-border p-2 hover:bg-muted transition-colors duration-200"
+      aria-label="Menu"
+    >
+      <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-50 bg-background/95 backdrop-blur-lg hidden lg:hidden"
+  >
+    <div class="flex items-center justify-between p-6">
+      <a href="/" class="flex items-center gap-2 text-lg font-semibold text-foreground">
+        <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" class="fill-foreground"/>
+          <path d="M8 16L16 8L24 16L16 24L8 16Z" class="fill-background"/>
+        </svg>
+        <span>{logo}</span>
+      </a>
+      <button
+        id="mobile-menu-close"
+        class="rounded-full border border-border p-2.5 hover:bg-muted transition-colors duration-200"
+        aria-label="Close"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-8 px-6 pb-6">
+      <ul class="flex flex-col items-start gap-6 list-none m-0 p-0">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="text-2xl font-semibold tracking-tight transition-all duration-200 hover:translate-x-2 p-0 text-foreground"
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div>
+        <button
+          id="theme-toggle-mobile"
+          class="p-2.5 rounded-full border border-border hover:bg-muted transition-colors duration-200"
+          aria-label="Toggle theme"
+        >
+          <svg id="theme-icon-sun-mobile" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg id="theme-icon-moon-mobile" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  const themeIconSun = document.getElementById('theme-icon-sun');
+  const themeIconMoon = document.getElementById('theme-icon-moon');
+  const themeIconSunMobile = document.getElementById('theme-icon-sun-mobile');
+  const themeIconMoonMobile = document.getElementById('theme-icon-moon-mobile');
+
+  const getTheme = () => localStorage.getItem('theme') || 'light';
+  const setTheme = (theme: string) => {
+    localStorage.setItem('theme', theme);
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    updateThemeIcon(theme);
+  };
+  const updateThemeIcon = (theme: string) => {
+    if (theme === 'dark') {
+      themeIconSun?.classList.remove('hidden');
+      themeIconMoon?.classList.add('hidden');
+    } else {
+      themeIconSun?.classList.add('hidden');
+      themeIconMoon?.classList.remove('hidden');
+    }
+    if (theme === 'dark') {
+      themeIconSunMobile?.classList.remove('hidden');
+      themeIconMoonMobile?.classList.add('hidden');
+    } else {
+      themeIconSunMobile?.classList.add('hidden');
+      themeIconMoonMobile?.classList.remove('hidden');
+    }
+  };
+
+  setTheme(getTheme());
+
+  const toggleTheme = () => {
+    const currentTheme = getTheme();
+    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  };
+
+  themeToggle?.addEventListener('click', toggleTheme);
+  themeToggleMobile?.addEventListener('click', toggleTheme);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= 50) {
+      navbar?.classList.add(
+        'p-2.5', 'bg-background/60', 'backdrop-blur-lg', 'border', 'border-border/40', 'shadow-2xl', 'shadow-primary/5', 'rounded-full'
+      );
+      navbar?.classList.remove('bg-transparent', 'border-transparent');
+    } else {
+      navbar?.classList.remove(
+        'p-2.5', 'bg-background/60', 'backdrop-blur-lg', 'border', 'border-border/40', 'shadow-2xl', 'shadow-primary/5', 'rounded-full'
+      );
+      navbar?.classList.add('bg-transparent', 'border-transparent');
+    }
+  });
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('hidden');
+    menuIconOpen?.classList.add('hidden');
+    menuIconClose?.classList.remove('hidden');
+  });
+
+  mobileMenuClose?.addEventListener('click', () => {
+    mobileMenu?.classList.add('hidden');
+    menuIconOpen?.classList.remove('hidden');
+    menuIconClose?.classList.add('hidden');
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+    });
+  });
+</script>
