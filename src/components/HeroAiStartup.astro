@@ -1,0 +1,93 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  primaryCTA?: string;
+  secondaryCTA?: string;
+  badge?: string;
+}
+
+const {
+  title = "Build the Future with AI-Powered Intelligence",
+  description = "Transform your workflow with cutting-edge artificial intelligence. Our platform automates complex tasks, reveals hidden insights, and accelerates your growth—so you can focus on what matters most.",
+  primaryCTA = "Start Free Trial",
+  secondaryCTA = "Watch Demo",
+  badge = "Now in Public Beta"
+} = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2dyaWQpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-40"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-sm font-medium backdrop-blur-sm">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+      </span>
+      {badge}
+    </div>
+
+    <!-- Headline -->
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
+      {title.split(' ').map((word, i) => {
+        if (['Future', 'AI-Powered', 'Intelligence'].includes(word)) {
+          return <span class="bg-gradient-to-r from-violet-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">{word} </span>;
+        }
+        return <>{word} </>;
+      })}
+    </h1>
+
+    <!-- Description -->
+    <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      {description}
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+      <a
+        href="#"
+        class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-600 rounded-xl hover:from-violet-500 hover:to-cyan-500 transition-all duration-300 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:-translate-y-0.5"
+      >
+        {primaryCTA}
+        <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+      <a
+        href="#"
+        class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-slate-300 border border-slate-700 rounded-xl hover:bg-slate-800/50 hover:border-slate-600 transition-all duration-300 backdrop-blur-sm"
+      >
+        <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        {secondaryCTA}
+      </a>
+    </div>
+
+    <!-- Trust badges / Social proof -->
+    <div class="flex flex-col items-center gap-6">
+      <p class="text-sm text-slate-500 uppercase tracking-wider font-medium">Trusted by innovative teams worldwide</p>
+      <div class="flex items-center justify-center gap-8 md:gap-12 opacity-60">
+        <div class="text-slate-400 font-semibold text-lg">Vercel</div>
+        <div class="text-slate-400 font-semibold text-lg">Stripe</div>
+        <div class="text-slate-400 font-semibold text-lg">Linear</div>
+        <div class="text-slate-400 font-semibold text-lg">Notion</div>
+        <div class="text-slate-400 font-semibold text-lg">Figma</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent"></div>
+</section>
