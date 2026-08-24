@@ -1,0 +1,199 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <BaseHead title={`Abonelik | ${SITE_TITLE}`} description="Planlarımızı inceleyin ve hemen başlayın" />
+  </head>
+  <body class="min-h-screen bg-background">
+    <Navbar />
+    <main class="container mx-auto px-4 py-16 md:py-24">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
+            <span class="font-serif italic">Planlarımızı</span> inceleyin
+          </h1>
+          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+            İşletmenizin ihtiyaçlarına uygun planı seçin.
+            Tüm planlarımız 14 günlük ücretsiz deneme süresi içerir.
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Starter Plan -->
+          <div class="p-8 rounded-2xl border border-border bg-card relative">
+            <div class="mb-6">
+              <h3 class="text-xl font-semibold mb-2">Başlangıç</h3>
+              <p class="text-muted-foreground text-sm">Küçük işletmeler için ideal</p>
+            </div>
+            <div class="mb-6">
+              <span class="text-4xl font-bold">₺999</span>
+              <span class="text-muted-foreground">/ay</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                1 AI Asistan
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                10.000 mesaj/ay
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                E-posta desteği
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Temel analitik
+              </li>
+            </ul>
+            <button
+              class="w-full h-11 rounded-full border border-border text-sm font-medium hover:bg-muted transition-colors"
+            >
+              Ücretsiz Deneyin
+            </button>
+          </div>
+
+          <!-- Pro Plan -->
+          <div class="p-8 rounded-2xl border-2 border-primary bg-card relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
+              Popüler
+            </div>
+            <div class="mb-6">
+              <h3 class="text-xl font-semibold mb-2">Profesyonel</h3>
+              <p class="text-muted-foreground text-sm">Büyüyen işletmeler için</p>
+            </div>
+            <div class="mb-6">
+              <span class="text-4xl font-bold">₺2.499</span>
+              <span class="text-muted-foreground">/ay</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                5 AI Asistan
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Sınırsız mesaj
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Öncelikli destek
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Gelişmiş analitik
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                API erişimi
+              </li>
+            </ul>
+            <button
+              class="w-full h-11 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              Hemen Başlayın
+            </button>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="p-8 rounded-2xl border border-border bg-card relative">
+            <div class="mb-6">
+              <h3 class="text-xl font-semibold mb-2">Kurumsal</h3>
+              <p class="text-muted-foreground text-sm">Büyük organizasyonlar için</p>
+            </div>
+            <div class="mb-6">
+              <span class="text-4xl font-bold">Özel</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Sınırsız AI Asistan
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Sınırsız mesaj
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                7/24 destek
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Özel entegrasyonlar
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                SLA garantisi
+              </li>
+            </ul>
+            <a
+              href="/iletisim"
+              class="w-full h-11 rounded-full border border-border text-sm font-medium hover:bg-muted transition-colors flex items-center justify-center"
+            >
+              İletişime Geçin
+            </a>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mt-24 max-w-3xl mx-auto">
+          <h2 class="text-2xl md:text-3xl font-medium text-center mb-12">
+            Sıkça Sorulan <span class="font-serif italic">Sorular</span>
+          </h2>
+          <div class="space-y-4">
+            <div class="p-6 rounded-2xl border border-border bg-card">
+              <h3 class="font-semibold mb-2">Ücretsiz deneme süresi var mı?</h3>
+              <p class="text-sm text-muted-foreground">Evet, tüm planlarımız 14 günlük ücretsiz deneme süresi içerir. Kredi kartı bilgisi gerekmez.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-border bg-card">
+              <h3 class="font-semibold mb-2">Planlar arası geçiş yapabilir miyim?</h3>
+              <p class="text-sm text-muted-foreground">Evet, istediğiniz zaman planınızı yükseltebilir veya düşürebilirsiniz.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-border bg-card">
+              <h3 class="font-semibold mb-2">İade politikanız nedir?</h3>
+              <p class="text-sm text-muted-foreground">İlk 30 gün içinde tam para iadesi alabilirsiniz.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
