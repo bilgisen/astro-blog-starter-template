@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -61,13 +61,13 @@
 }
 
 body {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "DM Sans", system-ui, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .font-serif {
-  font-family: "Instrument Serif", serif;
+  font-family: "Playfair Display", serif;
 }
 
 @keyframes marquee {
