@@ -1,0 +1,86 @@
+---
+const caseStudy = {
+  client: "jetborsa.com",
+  industry: "Fintech / Kripto Para Borsası",
+  challenge: "Yoğun işlem saatlerinde müşteri taleplerine hızlı yanıt vermek ve destek maliyetlerini düşürmek.",
+  solution: "AI destekli chatbot entegrasyonu ve otomatik yanıt sistemi.",
+  results: [
+    { metric: "%60", label: "Destek maliyetlerinde düşüş" },
+    { metric: "3x", label: "Yanıt hızında artış" },
+    { metric: "24/7", label: "Kesintisiz destek" },
+  ],
+};
+---
+
+<section class="py-24">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted border border-border text-sm text-muted-foreground mb-6">
+          Başarı Hikayesi
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
+          Müşterilerimizin başarıları
+        </h2>
+        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Yapay zeka çözümlerimizle işletmelere nasıl değer kattığımızı görün
+        </p>
+      </div>
+
+      <!-- Case Study Card -->
+      <div class="rounded-2xl border border-border bg-background overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-0">
+          <!-- Content -->
+          <div class="p-8 md:p-12">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg">
+                J
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg">{caseStudy.client}</h3>
+                <p class="text-sm text-muted-foreground">{caseStudy.industry}</p>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-sm font-medium text-muted-foreground mb-2">Zorluk</h4>
+                <p class="text-foreground">{caseStudy.challenge}</p>
+              </div>
+              <div>
+                <h4 class="text-sm font-medium text-muted-foreground mb-2">Çözüm</h4>
+                <p class="text-foreground">{caseStudy.solution}</p>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a
+                href="/iletisim"
+                class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+              >
+                Sizin için de yapabiliriz
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="bg-muted p-8 md:p-12 flex flex-col justify-center">
+            <h4 class="text-sm font-medium text-muted-foreground mb-8">Sonuçlar</h4>
+            <div class="space-y-8">
+              {caseStudy.results.map((result) => (
+                <div class="flex items-baseline gap-4">
+                  <span class="text-4xl md:text-5xl font-bold text-primary">{result.metric}</span>
+                  <span class="text-muted-foreground">{result.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

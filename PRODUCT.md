@@ -12,7 +12,7 @@ web
 
 ## Product Purpose
 
-Şirketlerin yapay zeka çağında rekabet avantajı elde etmesini sağlamak. AI devriminin parçası olmaları için uygun fiyatlı, erişilebilir ve uygulanabilir çözümler sunmak.
+Şirketlerin yapay zeka çağında rekabet avantajı elde etmesini sağlamak. Chatbot ve iş otomasyonu çözümleriyle operasyonları hızlandırmak, maliyetleri düşürmek ve müşteri memnuniyetini artırmak.
 
 ## Positioning
 
@@ -27,6 +27,8 @@ Uygun fiyatlı AI danışmanlığı — rakiplerden farklı olarak kaliteli yapa
 
 ## Capabilities and Constraints
 
+- AI chatbot çözümleri (müşteri hizmetleri, destek botları)
+- İş otomasyonu (workflow otomasyonu, veri işleme)
 - AI danışmanlık hizmetleri
 - Proje bazlı çalışmalar
 - Blog ve içerik yönetimi
@@ -48,6 +50,7 @@ Uygun fiyatlı AI danışmanlığı — rakiplerden farklı olarak kaliteli yapa
 - Abonelik: 3 fiyatlandırma planı (₺999/₺2.499/Özel)
 - İletişim sayfası
 - Tüm içerik Türkçe
+- Referans: jetborsa.com (müşteri başarısı)
 
 ## Product Principles
 

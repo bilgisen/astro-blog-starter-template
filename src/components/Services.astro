@@ -1,0 +1,83 @@
+---
+const services = [
+  {
+    title: "AI Chatbot Çözümleri",
+    description: "Müşteri hizmetlerinizi 7/24 otomatikleştirin. Yapay zeka destekli chatbot'larla müşteri memnuniyetini artırın ve destek maliyetlerinizi düşürün.",
+    icon: "chatbot",
+    features: ["Doğal dil işleme", "Çoklu dil desteği", "Kolay entegrasyon"],
+  },
+  {
+    title: "İş Otomasyonu",
+    description: "Tekrarlayan görevleri otomatikleştirin. Workflow otomasyonu ile zaman kazanın ve ekibinizi stratejik işlere odaklayın.",
+    icon: "automation",
+    features: ["Workflow tasarımı", "Veri işleme", "Raporlama"],
+  },
+  {
+    title: "AI Danışmanlığı",
+    description: "Yapay zeka stratejinizi birlikte oluşturalım. Mevcut süreçlerinizi analiz edip, en uygun AI çözümlerini öneriyoruz.",
+    icon: "consulting",
+    features: ["Süreç analizi", "Strateji oluşturma", "Uygulama desteği"],
+  },
+];
+---
+
+<section id="services" class="py-24 bg-muted/30">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border text-sm text-muted-foreground mb-6">
+          Hizmetlerimiz
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
+          Yapay zeka çözümlerimiz
+        </h2>
+        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+          İşletmenizin ihtiyaçlarına özel AI çözümleriyle verimliliğinizi artırın
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div class="group p-8 rounded-2xl border border-border bg-background hover:shadow-lg transition-all duration-300">
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+              {service.icon === "chatbot" && (
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+              )}
+              {service.icon === "automation" && (
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+              )}
+              {service.icon === "consulting" && (
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              )}
+            </div>
+
+            <!-- Content -->
+            <h3 class="text-xl font-semibold mb-3">{service.title}</h3>
+            <p class="text-muted-foreground mb-6">{service.description}</p>
+
+            <!-- Features -->
+            <ul class="space-y-2">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

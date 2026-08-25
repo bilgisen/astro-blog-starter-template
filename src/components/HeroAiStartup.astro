@@ -4,13 +4,15 @@ export interface Props {
   highlight?: string;
   description?: string;
   primaryCTA?: string;
+  secondaryCTA?: string;
 }
 
 const {
   title = "Yapay zeka çağına",
   highlight = "hazır mısınız?",
-  description = "Web sitenizin yapay zeka iş dünyasını dönüştürüyor. Şirketinizin AI devriminin parçası olması için uzman ekibimizle hizmetinizdeyiz.",
+  description = "Chatbot ve iş otomasyonu çözümleriyle operasyonlarınızı hızlandırın, maliyetlerinizi düşürün ve müşteri memnuniyetinizi artırın.",
   primaryCTA = "Sizi Arayalım",
+  secondaryCTA = "Çözümlerimiz",
 } = Astro.props;
 ---
 
@@ -23,6 +25,12 @@ const {
       <div class="flex flex-col max-w-5xl mx-auto gap-8">
         <!-- Text Content -->
         <div class="relative flex flex-col text-center items-center gap-4 sm:gap-6">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted border border-border text-sm text-muted-foreground animate-fade-in">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            Yapay zeka çağına hoş geldiniz
+          </div>
+
           <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.4] md:leading-[1.6] lg:leading-[1.7] animate-fade-in">
             {title}{" "}
             <span class="font-serif italic tracking-tight">
@@ -34,8 +42,8 @@ const {
           </p>
         </div>
 
-        <!-- CTA -->
-        <div class="flex justify-center animate-fade-in-delay-2">
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-delay-2">
           <a
             href="/iletisim"
             class="group relative inline-flex items-center justify-center h-12 p-1 pl-6 pr-14 text-sm font-medium rounded-full bg-primary text-primary-foreground transition-all duration-500 hover:pl-14 hover:pr-6 w-fit overflow-hidden"
@@ -49,6 +57,37 @@ const {
               </svg>
             </div>
           </a>
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center h-12 px-6 text-sm font-medium rounded-full border border-border bg-background text-foreground hover:bg-muted transition-colors duration-200"
+          >
+            {secondaryCTA}
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-sm text-muted-foreground animate-fade-in-delay-3">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Ücretsiz danışmanlık</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>7/24 destek</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Kolay entegrasyon</span>
+          </div>
         </div>
       </div>
     </div>
@@ -78,6 +117,11 @@ const {
 
   .animate-fade-in-delay-2 {
     animation: fadeIn 1s ease-in-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-delay-3 {
+    animation: fadeIn 1s ease-in-out 0.3s forwards;
     opacity: 0;
   }
 </style>
